@@ -78,6 +78,17 @@ getSecondButton.addEventListener("click", getPhotosSecond);
 let getEditBtn = document.querySelectorAll(
   ".btn-group > .btn.btn-sm.btn-outline-secondary:nth-of-type(even)"
 );
-getEditBtn.forEach((element) => {
+
+let getCard = document.querySelectorAll(".col-md-4");
+console.log(getCard[0]);
+
+for (let i = 0; i < getEditBtn.length; i++) {
+  const element = getEditBtn[i];
+
+  const hide = () => {
+    getCard[i].style.display = "none";
+  };
+
   element.innerText = "Hide";
-});
+  element.addEventListener("click", hide);
+}
