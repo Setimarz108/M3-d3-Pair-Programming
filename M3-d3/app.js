@@ -17,9 +17,10 @@ const getPhotos = () => {
         let cardImg = document.createElement("img");
         cardImg.className = "bd-placeholder-img card-img-top";
         cardImg.src = `${photoData.photos[i].src.medium}`;
-
-        getThumbnail[i].firstChild.remove();
-        getThumbnail[i].replaceChild(cardImg, getThumbnail[i].firstChild);
+        let toReplace = document.querySelectorAll(
+          ".bd-placeholder-img.card-img-top"
+        );
+        getThumbnail[i].replaceChild(cardImg, toReplace[i]);
       }
     });
 };
@@ -62,8 +63,10 @@ const getPhotosSecond = () => {
         cardImg.className = "bd-placeholder-img card-img-top";
         cardImg.src = `${photoData.photos[i].src.medium}`;
 
-        getThumbnail[i].firstChild.remove();
-        getThumbnail[i].replaceChild(cardImg, getThumbnail[i].firstChild);
+        let toReplace = document.querySelectorAll(
+          ".bd-placeholder-img.card-img-top"
+        );
+        getThumbnail[i].replaceChild(cardImg, toReplace[i]);
       }
     });
 };
