@@ -10,27 +10,37 @@ const getPhotos = () => {
   })
     .then((response) => response.json())
     .then((photoData) => {
-      console.log(photoData.photos);
+      console.log(photoData.photos[0].url);
+
+      for (let i = 0; i < getThumbnail.length; i++) {
+        // new image
+        let cardImg = document.createElement("img");
+        cardImg.className = "bd-placeholder-img card-img-top";
+        cardImg.src = `${photoData.photos[i].url}`;
+
+        getThumbnail[i].firstChild.remove();
+
+        getThumbnail[i].replaceChild(cardImg, getThumbnail[i].firstChild);
+      }
     });
 };
 
 getPhotos();
-
+// get the button and add event
 let getButton = document.querySelector(".btn.btn-primary.my-2");
-
 getButton.addEventListener("click", getPhotos);
+let getThumbnail = document.querySelectorAll(".col-md-4> .card.mb-4.shadow-sm");
 
-let getThumbnail = document.querySelectorAll(".card.mb-4.shadow-sm");
+// // new image
+// let cardImg = document.createElement("img");
+// cardImg.className = "bd-placeholder-img card-img-top";
+// cardImg.src = "https://pixlr.com/images/index/remove-bg.webp";
 
-let svg = getThumbnail[0].firstChild;
+// replace svg with photo
+// getThumbnail[0].firstChild.remove();
+// getThumbnail[0].replaceChild(cardImg, getThumbnail[0].firstChild);
+// console.log(getThumbnail[0].firstChild);
 
-let cardImg = document.createElement("img");
-cardImg.className = "bd-placeholder-img card-img-top";
-cardImg.src = "https://pixlr.com/images/index/remove-bg.webp";
-
-getThumbnail[0].appendChild(cardImg);
-
-console.log(svg);
 /*
 1. create new element (img)
 2. add class "bd-placeholder-img card-img-top"
