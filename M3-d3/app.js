@@ -10,7 +10,7 @@ const getPhotos = () => {
   })
     .then((response) => response.json())
     .then((photoData) => {
-      console.log(photoData);
+      console.log(photoData.photos);
     });
 };
 
