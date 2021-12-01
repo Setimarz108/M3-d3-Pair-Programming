@@ -10,7 +10,7 @@ const getPhotos = () => {
   })
     .then((response) => response.json())
     .then((photoData) => {
-      console.log(photoData.photos[0].url);
+      
 
       for (let i = 0; i < getThumbnail.length; i++) {
         // new image
