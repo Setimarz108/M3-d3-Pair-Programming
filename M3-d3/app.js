@@ -74,3 +74,10 @@ const getPhotosSecond = () => {
 let getSecondButton = document.querySelector(".btn.btn-secondary.my-2");
 console.log(getSecondButton);
 getSecondButton.addEventListener("click", getPhotosSecond);
+
+let getEditBtn = document.querySelectorAll(
+  ".btn-group > .btn.btn-sm.btn-outline-secondary:nth-of-type(even)"
+);
+getEditBtn.forEach((element) => {
+  element.innerText = "Hide";
+});
