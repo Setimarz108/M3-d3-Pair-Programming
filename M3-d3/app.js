@@ -1,7 +1,7 @@
 {
   Authorization: "563492ad6f91700001000001bac6f6a96f304864819504d3a10509bf";
 }
-
+let get9Min = document.querySelectorAll(".card-body  small");
 const getPhotos = () => {
   fetch("https://api.pexels.com/v1/search?query=coffe", {
     headers: {
@@ -12,14 +12,14 @@ const getPhotos = () => {
     .then((photoData) => {
       for (let i = 0; i < getThumbnail.length; i++) {
         // new image
-        console.log(i);
+
+        get9Min[i].innerText = `${photoData.photos[i].id}`;
         let cardImg = document.createElement("img");
         cardImg.className = "bd-placeholder-img card-img-top";
         cardImg.src = `${photoData.photos[i].src.medium}`;
 
         getThumbnail[i].firstChild.remove();
         getThumbnail[i].replaceChild(cardImg, getThumbnail[i].firstChild);
-        console.log(getThumbnail[i].firstChild);
       }
     });
 };
@@ -55,24 +55,22 @@ const getPhotosSecond = () => {
   })
     .then((response) => response.json())
     .then((photoData) => {
-      console.log("works");
       for (let i = 0; i < getThumbnail.length; i++) {
         // new image
-        console.log(i);
+        get9Min[i].innerText = `${photoData.photos[i].id}`;
         let cardImg = document.createElement("img");
         cardImg.className = "bd-placeholder-img card-img-top";
         cardImg.src = `${photoData.photos[i].src.medium}`;
 
         getThumbnail[i].firstChild.remove();
         getThumbnail[i].replaceChild(cardImg, getThumbnail[i].firstChild);
-        console.log(getThumbnail[i].firstChild);
       }
     });
 };
 
 // get the button and add event
 let getSecondButton = document.querySelector(".btn.btn-secondary.my-2");
-console.log(getSecondButton);
+
 getSecondButton.addEventListener("click", getPhotosSecond);
 
 let getEditBtn = document.querySelectorAll(
@@ -80,7 +78,6 @@ let getEditBtn = document.querySelectorAll(
 );
 
 let getCard = document.querySelectorAll(".col-md-4");
-console.log(getCard[0]);
 
 for (let i = 0; i < getEditBtn.length; i++) {
   const element = getEditBtn[i];
