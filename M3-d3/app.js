@@ -1,9 +1,16 @@
 {
   Authorization: "563492ad6f91700001000001bac6f6a96f304864819504d3a10509bf";
 }
+let getSearch = document.querySelector(".form-control.mr-sm-2.search-form");
+getSearch.value = "something";
+console.log(typeof getSearch);
+console.log(getSearch.value);
+
+let what = getSearch.value;
+
 let get9Min = document.querySelectorAll(".card-body  small");
 const getPhotos = () => {
-  fetch("https://api.pexels.com/v1/search?query=coffe", {
+  fetch(`https://api.pexels.com/v1/search?query=${what}`, {
     headers: {
       Authorization: "563492ad6f91700001000001bac6f6a96f304864819504d3a10509bf",
     },
